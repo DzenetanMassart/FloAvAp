@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/floravap.css">
+    <title>Floreffe Avant-Après</title>
+</head>
+
+<body>
+    <div class="input-group mb-3">
+        <input class="form-control " id="ListeSelection" type="text" placeholder="Rechercher...">
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Sélectionner un parcours
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Parcours 1</a>
+                <a class="dropdown-item" href="#">Parcours 2</a>
+                <a class="dropdown-item" href="#">Parcours 3</a>
+                <a class="dropdown-item" href="#">Parcours 4</a>
+            </div>
+        </div>
+    </div>
+
+    <!--La liste des lieux-->
+    <ul id="liste" class="list-group">
+        <li class="list-group-item">
+            <div class="gridaa container-fluid container pt-3 p-2" id="Deservoir">
+                <h2 class="bg-primary text-light">Déservoir</h2>
+                <div class="row">
+                    <img class="avant img-fluid col-xs-6 col-sm-4 order-sm-0 order-lg-0 flex-fill" src="assets/img/Avant/Déservoir_1908.png" alt="Déservoir en 1908">
+                    <img class="après img-fluid col-xs-6 col-sm-4 order-sm-1 order-lg-2 flex-fill" src="assets/img/Après/Sambre 2021.jpg" alt="Sambre en 2021">
+                    <iframe class="carte col-sm-4 order-sm-2 order-lg-1 flex-fill" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7838.3601982806895!2d4.752821659349992!3d50.43180637151416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c19abea666c3c7%3A0x670292cb58b4b8d7!2sAbbaye%20de%20Floreffe!5e0!3m2!1sfr!2sbe!4v1618819737418!5m2!1sfr!2sbe"
+                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="row">
+                    <p class="description col-sm-4 order-sm-3 order-lg-3 flex-fill text-center"> Description </p>
+                    <a class="site col-sm-4 order-sm-4 order-lg-4 flex-fill text-center" href="#"> Lien vers le site web du lieu </a>
+                    <p class="adresse col-sm-4 order-sm-5 order-lg-5 flex-fill text-center"> Adresse du lieu </p>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <!--Le script de la recherche-->
+    <script>
+        $(document).ready(function() {
+            $("#ListeSelection").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#liste li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
